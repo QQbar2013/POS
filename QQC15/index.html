@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>QQ價格試算 - 最終精密版</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="QQ-card">
+    <h1>QQ 價格計算</h1>
+    
+    <div class="input-section">
+      <p>請輸入總枝數：</p>
+      <input id='totalQtyInput' type="number" class="quantity-input" placeholder="0" autofocus inputmode="numeric">
+    </div>
+
+    <div id="hintArea" class="hint-box" style="display: none;">
+      <div id="hintText" class="hint-text"></div>
+    </div>
+
+    <div id="resultArea" class="result-display">
+      <div class="count-summary">
+        <span class="total-text">總共：<b id="displayTotal">0</b> 枝</span>
+        <div class="promo-detail">
+          符合：<span id="promoText" style="color: #2b8a3e; font-weight: bold;">買 0 送 0</span>
+        </div>
+      </div>
+      
+      <div class="price-summary">
+        <div class="total-price">
+          <span class="currency">$</span><span id="finalTotal">0</span>
+        </div>
+        <div class="formula">計算：$15 × <span id="calcPaid">0</span> 枝</div>
+      </div>
+    </div>
+
+    <button type="button" id="resetBtn" class="reset-btn">清空</button>
+  </div>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
