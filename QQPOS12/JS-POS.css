@@ -1,0 +1,122 @@
+* {
+  font-family: "Microsoft JhengHei", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  background: #eee;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* --- (A) 點菜面板 (電腦版左1) --- */
+#poslist {
+  width: 55%; /* 略微調寬 */
+  background: #ecf0f1;
+  order: 1;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 5px;
+  align-content: start;
+}
+
+.pwrap {
+  margin: 3px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.pwrap:active { background: #d5dbdb; }
+.pname { font-weight: bold; font-size: 18px; display: block; }
+.pprice { color: #2980b9; font-size: 13px; }
+
+/* --- (B) 購物車區 (電腦版左2) - 縮小比例與字體 --- */
+#poscart {
+  width: 30%; /* 縮窄 */
+  background: #fff;
+  order: 2;
+  overflow-y: auto;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  padding: 5px;
+}
+
+.citem {
+  padding: 5px 8px; /* 縮減內距 */
+  border-bottom: 1px solid #eee;
+  background: #fafafa;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cname { 
+  font-weight: bold; 
+  font-size: 15px; /* 縮小字體 */
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cdel { 
+  width: 25%;
+  background: #95a5a6; 
+  color: white; 
+  border: none; 
+  padding: 2px 5px; 
+  border-radius: 3px; 
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.cqty-input { height: 28px; width: 40px; text-align: center; font-size: 15px; }
+.cqty-sub, .cqty-add { width: 30px; height: 28px; background: #3498db; color: white; border: none; border-radius: 3px; cursor: pointer; }
+
+/* --- (C) 總計區 (電腦版右1) --- */
+#postotal {
+  width: 15%;
+  background: #2c3e50;
+  color: white;
+  order: 3;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#postotal h2 { font-size: 12px; color: #bdc3c7; margin: 5px 0 2px 0; }
+#postotal .big-num { font-size: 26px; font-weight: bold; color: #f1c40f; display: block; }
+
+.promo-hint {
+  background: #e67e22;
+  color: white;
+  padding: 4px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+#cempty { background: #e74c3c; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-top: 15px; font-weight: bold; }
+
+/* --- 手機版適配 --- */
+@media screen and (max-width: 800px) {
+  body { flex-direction: column; height: auto; overflow: visible; }
+  #poslist { width: 100%; order: 1; grid-template-columns: repeat(3, 1fr); }
+  #postotal { width: 100%; order: 2; height: auto; flex-direction: row; flex-wrap: wrap; position: sticky; top: 0; padding: 8px; }
+  #poscart { width: 100%; order: 3; min-height: 200px; }
+  .promo-hint { width: 100%; margin-bottom: 3px; }
+}
+
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
